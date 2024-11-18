@@ -43,7 +43,7 @@ func main() {
 	mux.HandleFunc("/api/tasks", middleware.Authenticate(handlers.TaskHandler(db), jwtKey))
 	mux.HandleFunc("/api/task/", middleware.Authenticate(handlers.TaskHandler(db), jwtKey))
 	mux.HandleFunc("/api/register", handlers.RegisterHandler(db, jwtKey))
-
+	mux.HandleFunc("/api/health", handlers.HealthCheckHandler)
 	handler := corsHandler.Handler(mux)
 
 	log.Println("Server starting on port 8080...")

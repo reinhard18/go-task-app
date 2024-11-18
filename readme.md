@@ -1,3 +1,5 @@
+# The response will include a JWT token and username if successful
+
 # Register a new user
 
 curl -X POST http://localhost:8080/api/register \
@@ -6,8 +8,6 @@ curl -X POST http://localhost:8080/api/register \
 "username": "newuser",
 "password": "newpassword123"
 }'
-
-# The response will include a JWT token and username if successful
 
 # You can then try to login with the new credentials
 
@@ -33,3 +33,5 @@ curl -X PUT http://localhost:8080/task/1 \
 
 curl -X DELETE http://localhost:8080/task/1 \
 -H "Authorization: Bearer YOUR_TOKEN"
+
+curl http://localhost:8080/health
